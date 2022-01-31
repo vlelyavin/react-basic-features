@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+#root .counter {
+  width: 550px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
+  margin: 30px;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 20px 30px;
+}
+#root .counter h1 {
+  font-weight: 300;
+  margin: 0 0 10px 0;
+}
+#root .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  width: 400px;
+}
+#root .buttons .button {
+  padding: 7px 20px;
+  font-size: 20px;
+  font-weight: 400;
+  display: inline-block;
+  width: 200px;
+  font-family: "Montserrat", sans-serif;
+  background: skyblue;
+  border: 2px solid #000;
+  border-radius: 12px;
+}
