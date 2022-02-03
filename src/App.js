@@ -1,39 +1,33 @@
-import React from "react";
-import { connect } from "react-redux";
-import "./style/style.scss";
+import { Routes, Route, Link } from "react-router-dom";
+import { Postpage } from "./pages/Postspage";
+import Todopage from "./pages/Todopage";
+import { Userpage } from "./pages/Userpage";
 
-function App(props) {
-  const onIncrement = (event) => {
-    props.dispatch({
-      type: "INCREMENT",
-    });
-  };
-
-  const onDecrement = (event) => {
-    props.dispatch({
-      type: "DECREMENT",
-    });
-  };
-
+const App = () => {
   return (
-    <div className="counter">
-      <h1>{props.count}</h1>
-      <div className="buttons">
-        <button className="button" onClick={onIncrement}>
-          Increment
-        </button>
-        <button className="button" onClick={onDecrement}>
-          Decrement
-        </button>
-      </div>
+    <div className="wrapper">
+      <header className="header">
+        <div className="header__container">
+          <Link className="header__link" to="/">
+            Posts
+          </Link>
+          <Link className="header__link" to="/todo">
+            Todo
+          </Link>
+          <Link className="header__link" to="/users">
+            Users
+          </Link>
+        </div>
+      </header>
+      <section className="main">
+        <Routes>
+          <Route path="/" element={<Postpage />} />
+          <Route path="/todo" element={<Todopage />} />
+          <Route path="/users" element={<Userpage />} />
+        </Routes>
+      </section>
     </div>
   );
-}
-
-const mapStateToProps = (state) => {
-  return {
-    count: state.count,
-  };
 };
 
-export default connect(mapStateToProps)(App);
+export default App;
