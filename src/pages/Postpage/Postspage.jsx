@@ -1,4 +1,6 @@
-const Postpage = () => {
+import "./Postpage.scss";
+
+export const Postpage = () => {
   return (
     <div className="main__container">
       <h1 className="main__title">Posts</h1>
@@ -87,5 +89,3 @@ const Postpage = () => {
     </div>
   );
 };
-
-export { Postpage };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { addTodo } from "../actions/todoActions";
+import { addTodo } from "../../actions/todoActions";
 import { useDispatch } from "react-redux";
+import "./TodoInput.scss";
 
 const TodoInput = () => {
   const [name, setName] = useState();
@@ -20,17 +21,15 @@ const TodoInput = () => {
 
   return (
     <div>
-      <div className="input__row">
-        <input
-          value={name}
-          onChange={inputValue}
-          type="text"
-          className="todo__input"
-        />
-        <button onClick={todoAddButton} className="todo__button">
-          Add todo
-        </button>
-      </div>
+      <input
+        value={name}
+        onChange={inputValue}
+        type="text"
+        className="todo__input"
+      />
+      <button onClick={todoAddButton} className="todo__button">
+        Add todo
+      </button>
     </div>
   );
 };

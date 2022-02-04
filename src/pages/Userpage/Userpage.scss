@@ -1,0 +1,60 @@
+.main {
+  &__container {
+    width: 1200px;
+    border-radius: 10px;
+    background: var(--white);
+    margin: 0 auto;
+    padding: 0 40px 25px;
+  }
+  &__title {
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--dark);
+    padding: 20px 0 10px 0;
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #000;
+  &__data {
+    display: block;
+    text-align: left;
+  }
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    margin: 0 30px 0 0;
+  }
+  &__name {
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0 0 0 30px;
+    position: relative;
+  }
+  &__corp {
+    font-size: 22px;
+    font-weight: 300;
+  }
+}
+
+.user__name::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 3px;
+  height: 40px;
+  width: 5px;
+  background: var(--dark);
+}
+
+.user:first-child {
+  padding: 0 0 30px 0;
+}
+
+.user:last-child {
+  margin: 0 0 10px 0;
+}

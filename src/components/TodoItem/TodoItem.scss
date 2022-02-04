@@ -1,0 +1,56 @@
+.todo {
+  &__input {
+    padding: 8px 32px 8px 16px;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid var(--dark);
+    outline: none;
+    width: 320px;
+    background: transparent;
+    color: var(--dark);
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+  }
+  &__input.edit {
+    outline: none;
+    padding: 8px 32px 8px 16px;
+    color: var(--dark);
+    background: var(--white);
+    border-radius: 5px;
+    margin: 0;
+  }
+  &__data {
+    padding: 0 0 0 18px;
+    user-select: none;
+  }
+  &__button {
+    user-select: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+    background: var(--dark);
+    color: var(--white);
+    text-transform: capitalize;
+    font-family: "Poppins", sans-serif;
+  }
+  &__buttons {
+    display: flex;
+    gap: 20px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px auto;
+    color: var(--white);
+    background: var(--dark);
+    padding: 16px;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 90%;
+  }
+}

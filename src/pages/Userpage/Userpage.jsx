@@ -1,4 +1,6 @@
-const Userpage = () => {
+import "./Userpage.scss";
+
+export const Userpage = () => {
   return (
     <div className="main__container">
       <h1 className="main__title">Users</h1>
@@ -73,5 +75,3 @@ const Userpage = () => {
     </div>
   );
 };
-
-export { Userpage };

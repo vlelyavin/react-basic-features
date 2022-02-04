@@ -1,0 +1,15 @@
+.main {
+  &__container {
+    width: 1200px;
+    border-radius: 10px;
+    background: var(--white);
+    margin: 0 auto;
+    padding: 0 40px 25px;
+  }
+  &__title {
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--dark);
+    padding: 20px 0 10px 0;
+  }
+}

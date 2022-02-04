@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteTodo, updateTodo } from "../actions/todoActions";
+import { deleteTodo, updateTodo } from "../../actions/todoActions";
+import "./TodoItem.scss";
 
-const TodoItem = ({ todo }) => {
+export const TodoItem = ({ todo }) => {
   const [editable, setEditable] = useState(false);
   const [name, setName] = useState(todo.name);
   let dispatch = useDispatch();
@@ -11,7 +12,7 @@ const TodoItem = ({ todo }) => {
     setName(e.target.value);
   };
 
-  let update = () => {
+  let onUpdate = () => {
     dispatch(
       updateTodo({
         ...todo,
@@ -24,7 +25,7 @@ const TodoItem = ({ todo }) => {
     setEditable(!editable);
   };
 
-  let remove = () => dispatch(deleteTodo(todo.id));
+  let onRemove = () => dispatch(deleteTodo(todo.id));
 
   let editUpdate = editable ? "Update" : "Edit";
 
@@ -44,10 +45,10 @@ const TodoItem = ({ todo }) => {
       <div className="todo__row">
         {changeFunc}
         <div className="todo__buttons">
-          <button className="todo__button" onClick={update}>
+          <button className="todo__button" onClick={onUpdate}>
             {editUpdate}
           </button>
-          <button className="todo__button" onClick={remove}>
+          <button className="todo__button" onClick={onRemove}>
             Delete
           </button>
         </div>
@@ -55,5 +56,3 @@ const TodoItem = ({ todo }) => {
     </div>
   );
 };
-
-export { TodoItem };
