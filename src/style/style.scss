@@ -40,6 +40,7 @@ body {
     font-size: 30px;
     font-weight: 700;
     letter-spacing: 2px;
+    padding: 10px 15px;
   }
 }
 
@@ -48,6 +49,7 @@ body {
   text-align: center;
   &__container {
     width: 1200px;
+    border-radius: 10px;
     background: var(--white);
     margin: 0 auto;
     padding: 0 40px 25px;
@@ -109,7 +111,6 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 20px;
-    border: 1px solid #000;
     margin: 0 30px 0 0;
   }
   &__name {
@@ -154,7 +155,6 @@ body {
     border-radius: 10px;
     padding-bottom: 32px;
   }
-
   &__input {
     padding: 8px 32px 8px 16px;
     border-radius: 4px 0 0 4px;
@@ -166,6 +166,14 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 20px;
     margin: 20px 0 10px 0;
+  }
+  &__input.edit {
+    outline: none;
+    padding: 8px 32px 8px 16px;
+    color: var(--dark);
+    background: var(--white);
+    border-radius: 5px;
+    margin: 0;
   }
   &__button {
     user-select: none;
@@ -181,22 +189,14 @@ body {
     text-transform: capitalize;
     font-family: "Poppins", sans-serif;
   }
-  &__input.edit {
-    border: 2px solid var(--dark);
-  }
-  &__button.edit {
-    margin-top: 20px;
-    background: var(--dark);
-    padding: 10px 20px;
-  }
-  &__container {
+  &__buttons {
     display: flex;
-    flex-direction: row;
-    position: relative;
+    gap: 20px;
   }
   &__row {
     display: flex;
     justify-content: space-between;
+
     align-items: center;
     margin: 15px auto;
     color: var(--white);
@@ -206,23 +206,10 @@ body {
     border-radius: 5px;
     width: 90%;
   }
-}
-
-.icons {
-  display: flex;
-  align-items: center;
-  font-size: 27px;
-  cursor: pointer;
-}
-
-.delete__icon {
-  margin: 0 5px 0 0;
-  color: var(--white);
-}
-
-.edit__icon {
-  color: var(--white);
-  margin: 0 5px 0 0;
+  &__data {
+    padding: 0 0 0 18px;
+    user-select: none;
+  }
 }
 
 .complete {

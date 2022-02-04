@@ -1,51 +1,17 @@
-import React, { useState } from "react";
-import TodoForm from "./TodoForm";
-import Todo from "./Todo";
+import React from "react";
+import TodoItem from "./TodoItem";
+import { useSelector } from "react-redux";
 
-const TodoList = () => {
-  const [todos, setTodos] = useState([]);
-
-  const addTodo = (todo) => {
-    const newTodos = [todo, ...todos];
-
-    setTodos(newTodos);
-    console.log(...todos);
-  };
-
-  const updateTodo = (todoId, newValue) => {
-    setTodos((prev) =>
-      prev.map((item) => (item.id === todoId ? newValue : item))
-    );
-  };
-
-  const removeTodo = (id) => {
-    const removedArr = [...todos].filter((todo) => todo.id !== id);
-
-    setTodos(removedArr);
-  };
-
-  const completeTodo = (id) => {
-    let updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
+function TodoList() {
+  let todos = useSelector((state) => state);
 
   return (
-    <>
-      <h1>What's the Plan for Today?</h1>
-      <TodoForm onSubmit={addTodo} />
-      <Todo
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
-    </>
+    <div className="todo__item">
+      {todos.map((todo) => {
+        return <TodoItem key={todos.id} todo={todo} />;
+      })}
+    </div>
   );
-};
+}
 
 export default TodoList;

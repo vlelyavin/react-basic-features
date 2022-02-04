@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { Postpage } from "./pages/Postspage";
-import Todopage from "./pages/Todopage";
+import { Todopage } from "./pages/Todopage";
 import { Userpage } from "./pages/Userpage";
 
 const App = () => {
