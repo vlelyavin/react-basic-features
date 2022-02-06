@@ -1,4 +1,3 @@
-
 let todos = [];
 
 export const reducer = (state = todos, action) => {

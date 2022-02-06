@@ -3,7 +3,7 @@ import { addTodo } from "../../actions/todoActions";
 import { useDispatch } from "react-redux";
 import "./TodoInput.scss";
 
-const TodoInput = () => {
+export const TodoInput = () => {
   const [name, setName] = useState();
   const dispatch = useDispatch();
 
@@ -33,5 +33,3 @@ const TodoInput = () => {
     </div>
   );
 };
-
-export { TodoInput };

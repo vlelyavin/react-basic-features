@@ -1,10 +1,10 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { Postpage } from "./pages/Postpage/Postspage";
+import { Postpage } from "./pages/Postpage/Postpage";
 import { Todopage } from "./pages/Todopage/Todopage";
 import { Userpage } from "./pages/Userpage/Userpage";
 import "./style/main.scss";
 
-const App = () => {
+export const App = () => {
   return (
     <div className="wrapper">
       <header className="header">
@@ -30,5 +30,3 @@ const App = () => {
     </div>
   );
 };
-
-export { App };

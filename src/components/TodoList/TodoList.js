@@ -1,14 +1,36 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { TodoItem } from "../TodoItem";
 import { useSelector } from "react-redux";
-import "./TodoList.scss";
+import { JsonTodoItem } from "../JsonTodoItem";
 
 export const TodoList = () => {
   const todos = useSelector((state) => state);
 
-  let todoItem = todos.map((todo) => {
-    return <TodoItem key={todos.id} todo={todo} />;
-  });
+  const [jsonTodos, setJsonTodos] = useState([]);
 
-  return <div>{todoItem}</div>;
+  useEffect(() => {
+    const setData = async () => {
+      const result = await fetch("https://jsonplaceholder.typicode.com/todos");
+      const jsonTodosData = await result.json();
+      setJsonTodos(jsonTodosData);
+      console.log(jsonTodosData);
+    };
+    setData();
+  }, []);
+
+  return (
+    <div>
+      <div>
+        {todos.map((todo) => (
+          <TodoItem key={todos.id} todo={todo} />
+        ))}
+      </div>
+      <div>
+        {jsonTodos.map((jsonTodo) => (
+          <JsonTodoItem key={jsonTodo.id} jsonTodo={jsonTodo} />
+        ))}
+      </div>
+    </div>
+  );
 };
