@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTodo, updateTodo } from "../../actions/todoActions";
+
 import "./TodoItem.scss";
 
 export const TodoItem = ({ todo }) => {
   const [editable, setEditable] = useState(false);
   const [name, setName] = useState(todo.name);
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  let change = (e) => {
+  const change = (e) => {
     setName(e.target.value);
   };
 
-  let onUpdate = () => {
+  const onUpdate = () => {
     dispatch(
       updateTodo({
         ...todo,
@@ -25,33 +26,27 @@ export const TodoItem = ({ todo }) => {
     setEditable(!editable);
   };
 
-  let onRemove = () => dispatch(deleteTodo(todo.id));
-
-  let editUpdate = editable ? "Update" : "Edit";
-
-  let changeFunc = editable ? (
-    <input
-      type="text"
-      className="todo__input edit"
-      value={name}
-      onChange={change}
-    />
-  ) : (
-    <p className="todo__data">{todo.name}</p>
-  );
+  const onRemove = () => dispatch(deleteTodo(todo.id));
 
   return (
-    <div>
-      <div className="todo__row">
-        {changeFunc}
-        <div className="todo__buttons">
-          <button className="todo__button" onClick={onUpdate}>
-            {editUpdate}
-          </button>
-          <button className="todo__button" onClick={onRemove}>
-            Delete
-          </button>
-        </div>
+    <div className="todo__row">
+      {editable ? (
+        <input
+          type="text"
+          className="todo__input edit"
+          value={name}
+          onChange={change}
+        />
+      ) : (
+        <p className="todo__data">{todo.name}</p>
+      )}
+      <div className="todo__buttons">
+        <button className="todo__button" onClick={onUpdate}>
+          {editable ? "Update" : "Edit"}
+        </button>
+        <button className="todo__button" type="submit" onClick={onRemove}>
+          Delete
+        </button>
       </div>
     </div>
   );

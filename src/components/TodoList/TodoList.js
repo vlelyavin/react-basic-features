@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { TodoItem } from "../TodoItem";
 import { useSelector } from "react-redux";
-import { JsonTodoItem } from "../JsonTodoItem";
+import { TodoItemList } from "../TodoItemList";
 
 export const TodoList = () => {
   const todos = useSelector((state) => state);
@@ -14,7 +14,6 @@ export const TodoList = () => {
       const result = await fetch("https://jsonplaceholder.typicode.com/todos");
       const jsonTodosData = await result.json();
       setJsonTodos(jsonTodosData);
-      console.log(jsonTodosData);
     };
     setData();
   }, []);
@@ -28,7 +27,7 @@ export const TodoList = () => {
       </div>
       <div>
         {jsonTodos.map((jsonTodo) => (
-          <JsonTodoItem key={jsonTodo.id} jsonTodo={jsonTodo} />
+          <TodoItemList key={jsonTodo.id} jsonTodo={jsonTodo} />
         ))}
       </div>
     </div>

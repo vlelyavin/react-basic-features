@@ -1,35 +1,57 @@
-import React, { useState } from "react";
+import React from "react";
 import { addTodo } from "../../actions/todoActions";
 import { useDispatch } from "react-redux";
+import { useFormik } from "formik";
+import * as yup from "yup";
 import "./TodoInput.scss";
 
 export const TodoInput = () => {
-  const [name, setName] = useState();
   const dispatch = useDispatch();
 
-  let inputValue = (e) => setName(e.target.value);
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+    },
+    validationSchema: yup.object({
+      title: yup
+        .string()
+        .max(30, "Must be 30 characters or")
+        .min(1, "Must not be empty")
+        .required("Must not be empty"),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
-  let todoAddButton = () => {
+  const todoAddButton = () => {
     dispatch(
       addTodo({
         id: Date.now(),
-        name: name,
+        name: formik.values.title,
       })
     );
-    setName("");
+    formik.values.title = " ";
   };
 
   return (
-    <div>
+    <form onSubmit={formik.handleSubmit}>
       <input
-        value={name}
-        onChange={inputValue}
+        value={formik.values.title}
+        onChange={formik.handleChange}
         type="text"
         className="todo__input"
+        name="title"
+        onBlur={formik.handleBlur}
       />
-      <button onClick={todoAddButton} className="todo__button">
+
+      <button onClick={todoAddButton} className="todo__button" type="submit">
         Add todo
       </button>
-    </div>
+      <br></br>
+      {formik.touched.title && formik.errors.title ? (
+        <span>{formik.errors.title}</span>
+      ) : null}
+    </form>
   );
 };
