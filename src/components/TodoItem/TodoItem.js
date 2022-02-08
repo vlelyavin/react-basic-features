@@ -6,7 +6,7 @@ import "./TodoItem.scss";
 
 export const TodoItem = ({ todo }) => {
   const [editable, setEditable] = useState(false);
-  const [name, setName] = useState();
+  const [name, setName] = useState("");
   const dispatch = useDispatch();
 
   const change = (e) => {
