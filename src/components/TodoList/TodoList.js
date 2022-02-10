@@ -7,13 +7,13 @@ import { TodoItemList } from "../TodoItemList";
 export const TodoList = () => {
   const todos = useSelector((state) => state);
 
-  const [jsonTodos, setJsonTodos] = useState([]);
+  const [todoItems, setTodoItems] = useState([]);
 
   useEffect(() => {
     const setData = async () => {
       const result = await fetch("https://jsonplaceholder.typicode.com/todos");
-      const jsonTodosData = await result.json();
-      setJsonTodos(jsonTodosData);
+      const TodoItemsList = await result.json();
+      setTodoItems(TodoItemsList);
     };
     setData();
   }, []);
@@ -26,8 +26,8 @@ export const TodoList = () => {
         ))}
       </div>
       <div>
-        {jsonTodos.map((jsonTodo) => (
-          <TodoItemList key={jsonTodo.id} jsonTodo={jsonTodo} />
+        {todoItems.map((todoItem) => (
+          <TodoItemList key={todoItem.id} todoItem={todoItem} />
         ))}
       </div>
     </div>

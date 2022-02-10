@@ -1,3 +1,7 @@
+* {
+  user-select: none;
+}
+
 .todo {
   &__button {
     user-select: none;

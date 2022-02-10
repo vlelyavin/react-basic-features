@@ -3,12 +3,17 @@ export const addTodo = (todo) => ({
   payload: todo,
 });
 
-export const deleteTodo = (todoId) => ({
+export const deleteTodo = (todo) => ({
   type: "DELETE_TODO",
-  payload: todoId,
+  payload: todo,
 });
 
 export const updateTodo = (todo) => ({
   type: "UPDATE_TODO",
+  payload: todo,
+});
+
+export const toggleComplete = (todo) => ({
+  type: "TOGGLE_COMPLETE",
   payload: todo,
 });

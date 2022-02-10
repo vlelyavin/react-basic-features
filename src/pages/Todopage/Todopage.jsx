@@ -2,9 +2,9 @@ import React from "react";
 import { Todo } from "../../components/Todo";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { reducer } from "../../reducers/todoReducer";
+import { todoReducer } from "../../reducers/todoReducer";
 
-const store = createStore(reducer);
+const store = createStore(todoReducer);
 
 export const Todopage = () => {
   return (

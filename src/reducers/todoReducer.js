@@ -1,12 +1,10 @@
-export const reducer = (state = [], action) => {
+export const todoReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_TODO": {
       return [...state, action.payload];
     }
     case "DELETE_TODO": {
-      let newTodos = [...state];
-      newTodos = newTodos.filter((todo) => todo.id !== action.payload);
-      return newTodos;
+      return [...state].filter((todo) => todo.id !== action.payload);
     }
     case "UPDATE_TODO": {
       let newTodos = [...state];
@@ -16,7 +14,11 @@ export const reducer = (state = [], action) => {
       newTodos[count] = action.payload;
       return newTodos;
     }
-
+    case "TOGGLE_COMPLETE": {
+      action.payload.completed = !action.payload.completed;
+      console.log(action.payload);
+      return [...state];
+    }
     default:
   }
 

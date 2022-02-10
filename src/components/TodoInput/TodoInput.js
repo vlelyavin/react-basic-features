@@ -13,6 +13,7 @@ export const TodoInput = () => {
       addTodo({
         id: Date.now(),
         name: formik.values.title,
+        completed: false,
       })
     );
     formik.values.title = "";
@@ -21,15 +22,15 @@ export const TodoInput = () => {
     initialValues: {
       title: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
     validationSchema: yup.object().shape({
       title: yup
         .string()
         .max(30, "Must be 30 characters or less")
         .required("Must not be empty"),
     }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
 
   return (
@@ -40,21 +41,21 @@ export const TodoInput = () => {
         className="todo__input"
         name="title"
         value={formik.values.title}
-        onBlur={formik.handleBlur}
       />
 
       <button
+        onBlur={formik.handleBlur}
         onClick={todoAddButton}
         className="todo__button"
         type="submit"
-        disabled={formik.values.title === "" ? true : false}
+        disabled={formik.values.title.trim() === ""}
       >
         Add todo
       </button>
       <br></br>
-      {formik.touched.title && formik.errors.title ? (
+      {formik.touched && formik.errors.title && (
         <span>{formik.errors.title}</span>
-      ) : null}
+      )}
     </form>
   );
 };
