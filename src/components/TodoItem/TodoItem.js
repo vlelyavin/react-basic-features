@@ -6,6 +6,7 @@ import {
   toggleComplete,
 } from "../../actions/todoActions";
 import "./TodoItem.scss";
+import classNames from "classnames";
 
 export const TodoItem = ({ todo }) => {
   const [editable, setEditable] = useState(false);
@@ -33,11 +34,12 @@ export const TodoItem = ({ todo }) => {
   const onDelete = () => dispatch(deleteTodo(todo.id));
   const onToggleComplete = () => dispatch(toggleComplete(todo));
 
-  let itemClassName = "todo__row";
-  if (todo.completed === true) itemClassName += " completed";
-
   return (
-    <div className={itemClassName}>
+    <div
+      className={classNames("todo__row", {
+        " completed": todo.completed === true,
+      })}
+    >
       {editable ? (
         <input
           type="text"

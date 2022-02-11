@@ -8,16 +8,6 @@ import "./TodoInput.scss";
 export const TodoInput = () => {
   const dispatch = useDispatch();
 
-  const todoAddButton = () => {
-    dispatch(
-      addTodo({
-        id: Date.now(),
-        name: formik.values.title,
-        completed: false,
-      })
-    );
-    formik.values.title = "";
-  };
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -28,8 +18,16 @@ export const TodoInput = () => {
         .max(30, "Must be 30 characters or less")
         .required("Must not be empty"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       console.log(values);
+      dispatch(
+        addTodo({
+          id: Date.now(),
+          name: formik.values.title,
+          completed: false,
+        })
+      );
+      resetForm();
     },
   });
 
@@ -43,13 +41,7 @@ export const TodoInput = () => {
         value={formik.values.title}
       />
 
-      <button
-        onBlur={formik.handleBlur}
-        onClick={todoAddButton}
-        className="todo__button"
-        type="submit"
-        disabled={formik.values.title.trim() === ""}
-      >
+      <button onBlur={formik.handleBlur} className="todo__button" type="submit">
         Add todo
       </button>
       <br></br>
