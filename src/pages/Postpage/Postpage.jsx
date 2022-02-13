@@ -1,22 +1,19 @@
-import { PostList } from "../../components/PostList";
-import { useState, useEffect } from "react";
+import React from "react";
+import { Post } from "../../components/Post";
+import { postReducer } from "../../reducers/postReducer";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 export const Postpage = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const setData = async () => {
-      const result = await fetch("https://jsonplaceholder.typicode.com/posts");
-      const jsonPosts = await result.json();
-      setPosts(jsonPosts);
-    };
-    setData();
-  }, []);
+  const store = createStore(postReducer, composeWithDevTools());
 
   return (
     <div className="main__container">
       <h1 className="main__title">Posts</h1>
-      <PostList key={posts.id} posts={posts} />
+      <Provider store={store}>
+        <Post />
+      </Provider>
     </div>
   );
 };

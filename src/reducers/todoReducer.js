@@ -16,7 +16,7 @@ export const todoReducer = (state = [], action) => {
     }
     case "TOGGLE_COMPLETE": {
       action.payload.completed = !action.payload.completed;
-      console.log(action.payload);
+
       return [...state];
     }
     default:

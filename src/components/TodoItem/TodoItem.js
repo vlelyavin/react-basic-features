@@ -37,7 +37,7 @@ export const TodoItem = ({ todo }) => {
   return (
     <div
       className={classNames("todo__row", {
-        " completed": todo.completed === true,
+        completed: todo.completed,
       })}
     >
       {editable ? (
