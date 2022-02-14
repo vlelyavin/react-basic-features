@@ -6,12 +6,12 @@ import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 export const Postpage = () => {
-  const store = createStore(postReducer, composeWithDevTools());
+  const postStore = createStore(postReducer, composeWithDevTools());
 
   return (
     <div className="main__container">
       <h1 className="main__title">Posts</h1>
-      <Provider store={store}>
+      <Provider store={postStore}>
         <Post />
       </Provider>
     </div>

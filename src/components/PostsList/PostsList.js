@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "./PostsList.scss";
+import React from "react";
 import { useSelector } from "react-redux";
 import { PostItem } from "../PostItem/PostItem";
 
 export const PostsList = () => {
-  const posts = useSelector((state) => state); /* useState([])    */
+  const posts = useSelector((state) => state);
+
   return (
     <div className="post__list">
       {posts.map((post) => (

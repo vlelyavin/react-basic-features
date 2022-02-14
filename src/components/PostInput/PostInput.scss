@@ -33,17 +33,18 @@
   }
   &__submit {
     user-select: none;
-    padding: 10px 45px;
+    padding: 10px 90px;
     font-size: 24px;
     font-weight: 500;
     border: none;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
     cursor: pointer;
     outline: none;
     background: var(--dark);
     color: var(--white);
     text-transform: capitalize;
     font-family: "Poppins", sans-serif;
+    margin: 0 0 20px 0;
   }
   &__textarea {
     height: 300px;
@@ -56,8 +57,9 @@
     color: var(--dark);
     font-family: "Poppins", sans-serif;
     font-size: 20px;
-    margin: 30px 0;
-
     resize: none;
+  }
+  &__errors {
+    margin: 15px 0;
   }
 }

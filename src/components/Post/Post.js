@@ -17,9 +17,9 @@ export const Post = () => {
 
   return (
     <div>
-      <PostInput />
+      <PostInput postItems={postItems} />
       <PostsList />
-      <PostItemList key={postItems.id} postItems={postItems} />
+      <PostItemList postItems={postItems} />
     </div>
   );
 };

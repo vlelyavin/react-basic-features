@@ -4,13 +4,13 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { todoReducer } from "../../reducers/todoReducer";
 
-const store = createStore(todoReducer);
+const todoStore = createStore(todoReducer);
 
 export const Todopage = () => {
   return (
     <div className="main__container">
       <h1 className="main__title">Todo</h1>
-      <Provider store={store}>
+      <Provider store={todoStore}>
         <Todo />
       </Provider>
     </div>
