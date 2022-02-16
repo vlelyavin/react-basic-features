@@ -7,8 +7,8 @@ export const Userpage = () => {
   useEffect(() => {
     const setData = async () => {
       const result = await fetch("https://jsonplaceholder.typicode.com/users");
-      const jsonPosts = await result.json();
-      setUsers(jsonPosts);
+      const userList = await result.json();
+      setUsers(userList);
     };
     setData();
   }, []);

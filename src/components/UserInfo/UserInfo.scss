@@ -1,0 +1,11 @@
+.user__info {
+  font-size: 22px;
+  font-weight: 300;
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+  }
+}
