@@ -30,7 +30,6 @@
     font-size: 22px;
     font-weight: 300;
   }
-
   &__link {
     font-size: 22px;
     color: #fff;
@@ -50,4 +49,9 @@
   height: 40px;
   width: 5px;
   background: var(--dark);
+}
+
+.outlet {
+  position: relative;
+  left: -175px;
 }

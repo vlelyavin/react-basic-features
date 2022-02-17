@@ -1,0 +1,46 @@
+.user__todo {
+  &__info {
+    font-size: 22px;
+    font-weight: 300;
+  }
+  &__info.done {
+    opacity: 0.2;
+  }
+  &__number {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 1px 30px 0 0;
+    width: 40px;
+  }
+}
+
+.user {
+  &__data__row {
+    position: relative;
+  }
+  &__checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--dark);
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    left: 30px;
+  }
+}
+
+.checked {
+  opacity: 0.3;
+}
+
+.checked::before {
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  content: "";
+  width: 4px;
+  height: 8px;
+  border-bottom: 2px solid var(--dark);
+  border-right: 2px solid var(--dark);
+  transform: rotate(45deg);
+}
