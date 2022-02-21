@@ -1,29 +1,22 @@
-import { useState, useEffect } from "react";
+import { useRequest } from "../../hooks/useRequest";
 
 export const UserPosts = ({ user }) => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const setData = async () => {
-      const result = await fetch(
-        `https://jsonplaceholder.typicode.com/users/${user.id}/posts`
-      );
-      const todoList = await result.json();
-      setPosts(todoList);
-    };
-    setData();
-  }, [user.id]);
-
-  let number = 1;
+  const { data, loading } = useRequest(
+    `https://jsonplaceholder.typicode.com/users/${user.id}/posts`
+  );
 
   return (
     <div>
-      {posts.map((post) => (
-        <div className="user__data__row" key={post.id}>
-          <span className="user__number">{number++}</span>
-          <div className="user__info">{post.title}</div>
-        </div>
-      ))}
+      {loading ? (
+        <div className="user__info">Loading...</div>
+      ) : (
+        data.map((post, idx) => (
+          <div key={post.id} className="user__data__row">
+            <span className="user__number">{idx + 1}</span>
+            <div className="user__info">{post.title}</div>
+          </div>
+        ))
+      )}
     </div>
   );
 };
