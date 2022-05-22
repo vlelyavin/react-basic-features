@@ -8,9 +8,7 @@ export const todoReducer = (state = [], action) => {
     }
     case "UPDATE_TODO": {
       let newTodos = [...state];
-      const count = newTodos.findIndex(
-        (newTodo) => newTodo.id === action.payload.id
-      );
+      const count = newTodos.findIndex((newTodo) => newTodo.id === action.payload.id);
       newTodos[count] = action.payload;
       return newTodos;
     }
