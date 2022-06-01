@@ -9,7 +9,7 @@ const todoStore = createStore(todoReducer);
 export const Todopage = () => {
   return (
     <div className="main__container">
-      <h1 className="main__title">Todo</h1>
+      <h1 className="main__title">Todos</h1>
       <Provider store={todoStore}>
         <Todo />
       </Provider>

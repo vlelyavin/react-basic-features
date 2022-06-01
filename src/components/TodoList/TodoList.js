@@ -22,7 +22,7 @@ export const TodoList = () => {
     <div>
       <div>
         {todos.map((todo) => (
-          <TodoItem key={todos.id} todo={todo} />
+          <TodoItem key={todo.id} todo={todo} />
         ))}
       </div>
       <div>

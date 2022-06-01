@@ -25,8 +25,6 @@ export const PostInput = ({ postItems }) => {
       };
       dispatch(addPost(postElem));
       postItems.unshift(postElem);
-      console.log(values);
-      console.log(postItems);
       resetForm();
     },
   });
@@ -42,9 +40,7 @@ export const PostInput = ({ postItems }) => {
         value={formik.values.title}
         placeholder="Title"
       />
-      {formik.errors && (
-        <span className="post__errors">{formik.errors.title}</span>
-      )}
+      {formik.errors && <span className="post__errors">{formik.errors.title}</span>}
       <textarea
         onChange={formik.handleChange}
         type="text"
@@ -53,9 +49,7 @@ export const PostInput = ({ postItems }) => {
         value={formik.values.text}
         placeholder="Some post maybe?"
       />
-      {formik.errors && (
-        <span className="post__errors">{formik.errors.text}</span>
-      )}
+      {formik.errors && <span className="post__errors">{formik.errors.text}</span>}
       <button className="post__submit" type="submit">
         Add
       </button>
