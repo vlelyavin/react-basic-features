@@ -1,6 +1,7 @@
 {
-  "name": "task_4.1",
+  "name": "react-basic-features",
   "version": "0.1.0",
+  "homepage": "https://react-basic-features.github.io/",
   "private": true,
   "dependencies": {
     "@ahooksjs/use-request": "^2.8.15",
@@ -28,6 +29,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -50,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
