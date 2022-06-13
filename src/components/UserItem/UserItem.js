@@ -18,7 +18,12 @@ export const UserItem = ({ user }) => {
           <div className="user__name">{user.username}</div>
           <div className="user__corp">{user.name}</div>
           <div className="user__corp">{user.company.name}</div>
-          <Link className="user__link" to="/users/user" id={user.id} onClick={toggleVisible}>
+          <Link
+            className="user__link"
+            to={!hidden ? "/react-basic-features/users/user" : "/react-basic-features/users"}
+            id={user.id}
+            onClick={toggleVisible}
+          >
             More...
           </Link>
           <div className="outlet">{hidden ? <Outlet context={user} /> : null}</div>

@@ -5,13 +5,13 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <Link className="header__link" to="/">
+        <Link className="header__link" to="/react-basic-features/">
           Posts
         </Link>
-        <Link className="header__link" to="/todos">
+        <Link className="header__link" to="/react-basic-features/todos">
           Todos
         </Link>
-        <Link className="header__link" to="/users">
+        <Link className="header__link" to="/react-basic-features/users">
           Users
         </Link>
       </div>

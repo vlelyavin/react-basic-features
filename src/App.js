@@ -11,11 +11,10 @@ export const App = () => {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<Postpage />} />
-        <Route path="/todos" element={<Todopage />} />
-        <Route path="/users" element={<Userpage />}>
-          <Route path="/users" element={<p></p>} />
-          <Route path="/users/user" element={<UserInfo />} />
+        <Route path="/react-basic-features/" element={<Postpage />} />
+        <Route path="/react-basic-features/todos" element={<Todopage />} />
+        <Route path="/react-basic-features/users" element={<Userpage />}>
+          <Route path="/react-basic-features/users/user" element={<UserInfo />} />
         </Route>
       </Routes>
     </div>

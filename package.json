@@ -1,7 +1,7 @@
 {
   "name": "react-basic-features",
   "version": "0.1.0",
-  "homepage": "https://react-basic-features.github.io/",
+  "homepage": "https://vlelyavin.github.io/react-basic-features/",
   "private": true,
   "dependencies": {
     "@ahooksjs/use-request": "^2.8.15",
